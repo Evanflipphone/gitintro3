@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calibre Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="calculator" aria-label="Calculator">
+      <header class="calculator-header">
+        <div class="brand-mark" aria-hidden="true">+</div>
+        <div>
+          <p class="eyebrow">CALIBRE / 01</p>
+          <h1>Calculator</h1>
+        </div>
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">◐</button>
+      </header>
+
+      <div class="display" aria-live="polite">
+        <div class="display-meta"><span id="memoryIndicator">READY</span><span id="expressionPreview"></span></div>
+        <output id="displayValue" class="display-value" aria-label="Calculator display">0</output>
+      </div>
+
+      <div class="keypad">
+        <button class="key utility" data-action="clear" type="button">AC</button>
+        <button class="key utility" data-action="backspace" type="button" aria-label="Backspace">⌫</button>
+        <button class="key utility" data-action="percent" type="button">%</button>
+        <button class="key operator" data-value="÷" type="button">÷</button>
+
+        <button class="key" data-value="7" type="button">7</button>
+        <button class="key" data-value="8" type="button">8</button>
+        <button class="key" data-value="9" type="button">9</button>
+        <button class="key operator" data-value="×" type="button">×</button>
+
+        <button class="key" data-value="4" type="button">4</button>
+        <button class="key" data-value="5" type="button">5</button>
+        <button class="key" data-value="6" type="button">6</button>
+        <button class="key operator" data-value="−" type="button">−</button>
+
+        <button class="key" data-value="1" type="button">1</button>
+        <button class="key" data-value="2" type="button">2</button>
+        <button class="key" data-value="3" type="button">3</button>
+        <button class="key operator" data-value="+" type="button">+</button>
+
+        <button class="key zero" data-value="0" type="button">0</button>
+        <button class="key" data-action="decimal" type="button">.</button>
+        <button class="key equals" data-action="equals" type="button">=</button>
+      </div>
+
+      <div class="calculator-footer"><span>ESC clears</span><span>↵ calculates</span></div>
+    </section>
+
+    <aside class="history-panel" aria-label="Calculation history">
+      <div class="history-heading">
+        <div>
+          <p class="eyebrow">LOG / 02</p>
+          <h2>Recent calculations</h2>
+        </div>
+        <button class="text-button" id="clearHistory" type="button">Clear</button>
+      </div>
+      <div id="historyList" class="history-list">
+        <p class="empty-history">Your completed calculations will appear here.</p>
+      </div>
+      <div class="tip"><span class="tip-icon">i</span><p>Use your keyboard for a faster flow. Operators, decimals, and Enter are all supported.</p></div>
+    </aside>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
