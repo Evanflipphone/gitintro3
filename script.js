@@ -81,14 +81,14 @@ function renderExpressions() {
 
 function addExpression(value = '') { expressions.push({ value, color: colors[expressions.length % colors.length] }); renderExpressions(); expressionList.lastElementChild.querySelector('input').focus(); }
 
-document.querySelector('#addExpression').addEventListener('click', () => addExpression());
-document.querySelector('#clearExpressions').addEventListener('click', () => { expressions.length = 0; renderExpressions(); });
-expressionList.addEventListener('input', event => { if (event.target.matches('input')) { expressions[event.target.dataset.index].value = event.target.value; drawGraph(); } });
-expressionList.addEventListener('click', event => { const index = event.target.dataset.remove; if (index !== undefined) { expressions.splice(index, 1); renderExpressions(); } });
+document.querySelector('#addExpression')?.addEventListener('click', () => addExpression());
+document.querySelector('#clearExpressions')?.addEventListener('click', () => { expressions.length = 0; renderExpressions(); });
+expressionList?.addEventListener('input', event => { if (event.target.matches('input')) { expressions[event.target.dataset.index].value = event.target.value; drawGraph(); } });
+expressionList?.addEventListener('click', event => { const index = event.target.dataset.remove; if (index !== undefined) { expressions.splice(index, 1); renderExpressions(); } });
 document.querySelectorAll('.example').forEach(button => button.addEventListener('click', () => addExpression(button.dataset.expression)));
 document.querySelectorAll('[data-zoom]').forEach(button => button.addEventListener('click', () => { scale = Math.max(12, Math.min(110, scale * (button.dataset.zoom === 'in' ? 1.25 : .8))); zoomLabel.textContent = `${(scale / 38).toFixed(1)}×`; drawGraph(); }));
-document.querySelector('#resetView').addEventListener('click', () => { scale = 38; origin = { x: 0, y: 0 }; zoomLabel.textContent = '1.0×'; drawGraph(); });
-document.querySelector('#themeToggle').addEventListener('click', () => document.body.classList.toggle('warm'));
+document.querySelector('#resetView')?.addEventListener('click', () => { scale = 38; origin = { x: 0, y: 0 }; zoomLabel.textContent = '1.0×'; drawGraph(); });
+document.querySelector('#themeToggle')?.addEventListener('click', () => document.body.classList.toggle('warm'));
 canvas.addEventListener('pointerdown', event => { dragging = true; dragStart = { x: event.clientX - origin.x, y: event.clientY - origin.y }; canvas.setPointerCapture(event.pointerId); });
 canvas.addEventListener('pointermove', event => { if (dragging) { origin.x = event.clientX - dragStart.x; origin.y = event.clientY - dragStart.y; drawGraph(); } });
 canvas.addEventListener('pointerup', () => { dragging = false; });
