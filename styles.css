@@ -14,7 +14,7 @@
 * { box-sizing: border-box; }
 
 body {
-  min-height: 100vh;
+  min-height: 10000vh;
   margin: 0;
   color: var(--ink);
   background: var(--paper);
